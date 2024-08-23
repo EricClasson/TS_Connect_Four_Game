@@ -2,9 +2,11 @@
 
 ## Building progress/problem solving
 
-1. Create classes Game, Board, Player - connect Game to index.js´
-2. Create Class Player
-3.
+1. Create classes Game, Board, Player - connect Game to index.js.
+2. Create Class Player.
+3. Create Game class and createplayer function inside.
+4. Add new Game() in index.ts so we can render somthing.
+5. Create Board class - needs, to create a bord with matrix(), booleans of isWinner, isGameOver, isDraw. and deside playermarker starter turn 'x'
 
 ### Demands on asignment
 
