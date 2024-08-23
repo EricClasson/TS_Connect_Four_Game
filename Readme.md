@@ -12,6 +12,8 @@
 8. In makeYourMove make a loop that checks all rows an puts in the deside marker.
 9. Fix so the entered marker with promt assigns the puts in the seleced row in the array. Then in makeYourMove check what marker it is then change.
 10. Fix bugg so that the marker comes on top of eachother.
+11. Make the worng handling for the game
+12. Make winCheck
 
 ### Demands on asignment
 
