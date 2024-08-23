@@ -8,7 +8,9 @@
 4. Add new Game() in index.ts so we can render somthing.
 5. Create Board class - needs.. to create a bord with matrix(), booleans of isWinner, isGameOver, isDraw. and deside playermarker starter turn 'x', Render() this so it can print in console.log()
 6. In Game class, Create startGame() ant render() out the board after the names are added.
-7.
+7. In startGame() Check currentMarker, then prompt to let the player descide what row the marker should be on.
+8. In makeYourMove make a loop that checks all rows an puts in the deside marker.
+9. Fix so the entered marker with promt assigns the puts in the seleced row in the array.
 
 ### Demands on asignment
 

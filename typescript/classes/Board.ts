@@ -4,6 +4,7 @@ export default class Board {
   isWinner: boolean;
   isADraw: boolean;
   isGameOver: boolean;
+
   constructor() {
     this.matrix = [...new Array(6)].map(() => [...new Array(7)].map(() => ""));
     this.currentPlayerMarker = "X";
@@ -21,5 +22,16 @@ export default class Board {
           .join(line) +
         line
     );
+  }
+
+  makeYourMove() {
+    let currentRow;
+    for (let row = this.matrix.length - 1; row >= 0; row--) {
+      currentRow = this.matrix[row];
+      if (currentRow[4] == "") {
+        currentRow[4] = "X";
+        break;
+      }
+    }
   }
 }
