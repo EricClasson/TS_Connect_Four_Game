@@ -24,10 +24,10 @@ export default class Board {
     );
   }
 
-  makeYourMove(marker: string, row: number) {
-    for (let rows = this.matrix.length - 1; row >= 0; row--) {
-      if (this.matrix[rows][row] == "") {
-        this.matrix[rows][row] = marker;
+  makeYourMove(marker: string, column: number) {
+    for (let row = this.matrix.length - 1; row >= 0; row--) {
+      if (this.matrix[row][column] == "") {
+        this.matrix[row][column] = marker;
         break;
       }
     }

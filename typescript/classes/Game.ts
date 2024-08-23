@@ -41,8 +41,8 @@ export default class Game {
       let move = prompt(
         `Make your move Player:${player.name} "${player.marker}" - type ROW, 1-6: `
       );
-      let [row] = move.split(",").map((x: string) => +x.trim() - 1);
-      this.board.makeYourMove(player.marker, row);
+      let [column] = move.split(",").map((x: string) => +x.trim() - 1);
+      this.board.makeYourMove(player.marker, column);
     }
   }
 }
