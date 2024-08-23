@@ -6,6 +6,7 @@ export default class Game {
   playerX: Player | undefined;
   playerO: Player | undefined;
   board: Board;
+  player: Player | undefined;
 
   constructor() {
     this.createPlayer();
@@ -23,15 +24,25 @@ export default class Game {
   }
 
   startGame() {
-    console.log(`Starting the game between ${this.playerX} & ${this.playerO}`);
+    while (!this.board.isGameOver) {
+      console.log(
+        `Starting the game between ${this.playerX} & ${this.playerO}`
+      );
 
-    this.board.render();
-    this.board.makeYourMove();
+      this.board.render();
 
-    //   let player =
-    //     this.board.currentPlayerMarker === "X" ? this.playerX : this.playerO;
-    //   let makeMove = prompt(
-    //     `Make your move ${player?.name} ${player?.marker} - type ROW, 1-6`
-    //   );
+      let player =
+        this.board.currentPlayerMarker === "X" ? this.playerX : this.playerO;
+
+      if (!player) {
+        console.error("player is not defined");
+        return;
+      }
+      let move = prompt(
+        `Make your move Player:${player.name} "${player.marker}" - type ROW, 1-6: `
+      );
+      let [row] = move.split(",").map((x: string) => +x.trim() - 1);
+      this.board.makeYourMove(player.marker, row);
+    }
   }
 }

@@ -24,14 +24,14 @@ export default class Board {
     );
   }
 
-  makeYourMove() {
-    let currentRow;
-    for (let row = this.matrix.length - 1; row >= 0; row--) {
-      currentRow = this.matrix[row];
-      if (currentRow[4] == "") {
-        currentRow[4] = "X";
+  makeYourMove(marker: string, row: number) {
+    for (let rows = this.matrix.length - 1; row >= 0; row--) {
+      if (this.matrix[rows][row] == "") {
+        this.matrix[rows][row] = marker;
         break;
       }
     }
+    //Checks what player it is and then changes to the next player when they made its move.
+    this.currentPlayerMarker = this.currentPlayerMarker === "X" ? "O" : "X";
   }
 }
