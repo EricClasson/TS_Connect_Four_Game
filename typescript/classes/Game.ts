@@ -1,16 +1,19 @@
 import Player from "./Player.js";
 import prompt from "../helpers/prompt.js";
 import Board from "./Board.js";
+import MakeYourMove from "./MakeYourMove.js";
 
 export default class Game {
   playerX: Player | undefined;
   playerO: Player | undefined;
   board: Board;
   player: Player | undefined;
+  makeYourMove: MakeYourMove;
 
   constructor() {
     this.createPlayer();
     this.board = new Board();
+    this.makeYourMove = new MakeYourMove(this.board);
     this.startGame();
   }
 
@@ -24,7 +27,7 @@ export default class Game {
   }
 
   startGame() {
-    while (!this.board.isGameOver) {
+    while (!this.makeYourMove.isGameOver) {
       if (!this.playerX || !this.playerO) {
         console.error("One player is not defined");
         return;
@@ -37,17 +40,19 @@ export default class Game {
       this.board.render(); // Render out the board with this function.
 
       let player =
-        this.board.currentPlayerMarker === "X" ? this.playerX : this.playerO;
+        this.makeYourMove.currentPlayerMarker === "X"
+          ? this.playerX
+          : this.playerO;
 
       if (!player) {
         console.error("player is not defined");
         return;
       }
       let move = prompt(
-        `Make your move Player:${player.name} "${player.marker}" - type ROW, 1-7: `
+        `Make your move Player:${player.name} "${player.marker}" - type COLUMN, 1-7: `
       );
       let column = +move - 1;
-      this.board.makeYourMove(player.marker, column);
+      this.makeYourMove.makeYourMove(player.marker, column);
     }
   }
 }
