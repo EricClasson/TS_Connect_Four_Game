@@ -14,9 +14,12 @@ export default class Board {
   }
 
   render() {
-    let line = "\n" + "-".repeat(29) + "\n";
+    const columnNumber =
+      "  " + [...Array(7).keys()].map((n) => n + 1).join("  ") + "";
+    let line = "\n" + "*".repeat(22) + "\n";
     console.log(
-      line +
+      columnNumber +
+        line +
         this.matrix
           .map((row) => row.map((column) => `| ${column} `).join("") + "|")
           .join(line) +
@@ -26,11 +29,14 @@ export default class Board {
 
   // Flytta ut make move från boardklassen
   // makeYourMove takes in the parameters "marker" & "column"
+
   makeYourMove(marker: string, column: number) {
     // for loop does checks for a free place in the matrix. then puts the marker in seleced column.
+    let columnMove;
     for (let row = this.matrix.length - 1; row >= 0; row--) {
-      if (this.matrix[row][column] == "") {
-        this.matrix[row][column] = marker;
+      columnMove = this.matrix[row];
+      if (columnMove[column] == "") {
+        columnMove[column] = marker;
         break;
       }
     }
