@@ -15,6 +15,7 @@ export default class Game {
     this.board = new Board();
     this.makeYourMove = new MakeYourMove(this.board);
     this.startGame();
+    this.whoWon();
   }
 
   createPlayer() {
@@ -27,16 +28,16 @@ export default class Game {
   }
 
   startGame() {
-    while (!this.makeYourMove.isGameOver) {
-      if (!this.playerX || !this.playerO) {
-        console.error("One player is not defined");
-        return;
-      }
-      console.log(
-        `The game is between ${this.playerX.name} & ${this.playerO.name} ` +
-          "\n"
-      );
+    let winner = "";
+    if (!this.playerX || !this.playerO) {
+      console.error("One player is not defined");
+      return;
+    }
+    console.log(
+      `The game is between ${this.playerX.name} & ${this.playerO.name} ` + "\n"
+    );
 
+    while (winner === "") {
       this.board.render(); // Render out the board with this function.
 
       let player =
@@ -53,6 +54,20 @@ export default class Game {
       );
       let column = +move - 1;
       this.makeYourMove.makeYourMove(player.marker, column);
+      winner = this.makeYourMove.isWinner;
+    }
+  }
+
+  whoWon() {
+    console.clear();
+    this.board.render();
+    if (this.makeYourMove.isWinner) {
+      let winnerPlayer =
+        this.makeYourMove.isWinner === "X" ? this.playerX : this.playerO;
+      console.log(
+        "\n" +
+          `The winner is ${winnerPlayer?.name} & marker:  ${winnerPlayer?.marker} `
+      );
     }
   }
 }

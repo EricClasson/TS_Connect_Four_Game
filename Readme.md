@@ -12,7 +12,7 @@
 8. In makeYourMove make a loop that checks all rows an puts in the deside marker.
 9. Fix so the entered marker with promt assigns the puts in the seleced row in the array. Then in makeYourMove check what marker it is then change.
 10. Fix bugg so that the marker comes on top of eachother.
-11. Make winCheck.. first i need to make an offset so i know what it takes to win.. to do so i need 4 cells to be the same. then i need to loop through matrix row and column cells to check if they have x & o that are in series.
+11. Make winCheck.. first i need to make an offset so i know what it takes to win.. to do so i need 4 cells to be the same. then i need to loop through matrix row and column cells to check if they have x & o that are in series. - wincheck is working sort of! the base is should be correct.. check for bugs and try the game.
 12. Make the wrong handling for the game
 
 ### Demands on asignment
