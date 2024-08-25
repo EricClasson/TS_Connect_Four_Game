@@ -31,5 +31,4 @@
 
 ### frågor till Thomas
 
-1. checkforwin. osäker på hur jag ska göra detta. vet inte hur jag ska skriva koden..
-2. I spelet, hur fixar jag så raden inte hoppar ut när det fylls i ett x?.
+2. I spelet, hur fixar jag så raden inte hoppar ut när det fylls i ett x eller o?.

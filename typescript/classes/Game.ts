@@ -63,7 +63,7 @@ export default class Game {
     this.board.render();
     if (this.makeYourMove.isWinner) {
       let winnerPlayer =
-        this.makeYourMove.isWinner === "X" ? this.playerX : this.playerO;
+        this.makeYourMove.isWinner === "X" ? this.playerO : this.playerX;
       console.log(
         "\n" +
           `The winner is ${winnerPlayer?.name} & marker:  ${winnerPlayer?.marker} `
