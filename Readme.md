@@ -13,7 +13,10 @@
 9. Fix so the entered marker with promt assigns the puts in the seleced row in the array. Then in makeYourMove check what marker it is then change.
 10. Fix bugg so that the marker comes on top of eachother.
 11. Make winCheck.. first i need to make an offset so i know what it takes to win.. to do so i need 4 cells to be the same. then i need to loop through matrix row and column cells to check if they have x & o that are in series. - wincheck is working sort of! the base is should be correct.. check for bugs and try the game.
-12. Make the wrong handling for the game
+12. move CheckForWin out to an own class. then make a function that checks for a draw. put it inside whoWon function.
+13. isDraw function. that loops the last col and check if thers no empty fileds. then return that its a draw.
+14. Make the wrong handling for the game, if input nr is < 0 || > 7, then log that it should be 1-7
+15. Make the dummycomputer
 
 ### Demands on asignment
 
