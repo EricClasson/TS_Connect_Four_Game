@@ -39,7 +39,6 @@ export default class Game {
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
       console.clear();
       this.board.render(); // Render out the board with this function.
-
       let player =
         this.makeYourMove.currentPlayerMarker === "X"
           ? this.playerX
@@ -53,12 +52,15 @@ export default class Game {
       let move = prompt(
         `Make your move Player:${player.name} "${player.marker}" - type COLUMN, 1-7: `
       );
+
+      // Takes the move and make it to a number and - 1 because arrays starts with 0.
       let column = +move - 1;
 
+      // Sends to makeYourMove witch player it is and what column it filled in
       this.makeYourMove.makeYourMove(player.marker, column);
     }
   }
-
+  // this function checks if a person has won or if it is a draw, it first checks if it is X or O then console.log the winner. IF its a draw console.log " its a draw"
   whoWon() {
     console.clear();
     if (this.makeYourMove.isWinner) {
@@ -69,7 +71,7 @@ export default class Game {
           `The winner is ${winnerPlayer?.name} & marker:  ${winnerPlayer?.marker} `
       );
     } else {
-      console.log(this.makeYourMove.isdraw);
+      console.log(`Its a draw ${this.makeYourMove.isdraw}`);
     }
   }
 }

@@ -28,7 +28,10 @@ export default class MakeYourMove {
     }
     //Checks what player it is and then changes to the next player when they made its move.
     this.currentPlayerMarker = this.currentPlayerMarker === "X" ? "O" : "X";
+
+    // checks for a winner.
     this.isWinner = this.winCheck.winCheck();
+    // checks for a draw.
     this.isdraw = this.winCheck.isDraw();
   }
 }
