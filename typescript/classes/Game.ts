@@ -35,15 +35,27 @@ export default class Game {
 
     const game = prompt(
       "Do you want to play against a computer? (yes/no): "
-    ).toLowerCase();
+    ).toLowerCase(); // ändra denna variabel
 
     if (game === "yes") {
-      this.playerX = new Player(prompt("Enter the name for player X: "), "X");
-      this.playerO = new Player("computer", "O");
+      this.playerX = new Player(
+        prompt("Enter the name for player X: "),
+        "X",
+        this.board
+      );
+      this.playerO = new Player("computer", "O", this.board, true);
     } else {
       // Gör PlayerX & PlayerO använder mig av prompt för att få in namnen och sparar dem.
-      this.playerX = new Player(prompt("Enter the name for player X: "), "X");
-      this.playerO = new Player(prompt("Enter the name for player 0: "), "O");
+      this.playerX = new Player(
+        prompt("Enter the name for player X: "),
+        "X",
+        this.board
+      );
+      this.playerO = new Player(
+        prompt("Enter the name for player 0: "),
+        "O",
+        this.board
+      );
     }
   }
 
@@ -65,10 +77,15 @@ export default class Game {
         console.error("player is not defined");
         return;
       }
+      let move;
 
-      let move = prompt(
-        `Make your move Player:${player.name} "${player.marker}" - type COLUMN, 1-7: `
-      );
+      if (player.isComputer) {
+        move = player.makeComputerMove();
+      } else {
+        move = prompt(
+          `Make your move Player:${player.name} "${player.marker}" - type COLUMN, 1-7: `
+        );
+      }
 
       // Takes the move and make it to a string and - 1 because arrays starts with 0.
       let column = +move - 1;
