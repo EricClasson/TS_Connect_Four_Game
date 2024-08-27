@@ -17,8 +17,10 @@
 13. isDraw function. that loops the last row and check if thers no empty fileds. then return that its a draw.
 14. Make the wrong handling for the game, if input nr is < 0 || > 7, then log that it should be 1-7. when the input nothing or higher number than t nothig should happend
 15. Make the dummycomputer
+16. make wronghandling so player/computer cant put in a full column
+17. check the newGame function? does it work?
 
-### Demands on asignment
+## Demands on asignment
 
 - Skriv spelet 4-i-rad (Connect 4) objektorienterat och med TypeScript.
 - Skriv det som ett terminal-baserat program utan webbaserat gränssnitt.
@@ -32,7 +34,24 @@
   - Du behöver inte använda git-branches när du jobbar ensam. Men får gärna göra det om du känner behov av det.
   - Obs! Fokusera på spellogiken - inte att göra output till terminalen överdrivet snygg (med färger etc). Låt det som är röd spelare i Fyra-i-rad representeras av “X” på spelbrädet när det “ritas ut” och gul-spelare representeras av “O”.
 
-### frågor till Thomas
+## Frågor till Thomas
 
 2. OM spelet startar om måste jag reset iswinner och isdraw. måste vi ha en en reset?
 3. Hur mycket felhantering behöver vi?
+
+## Installation
+
+\_Below is an example of how you can clone, install and start the projekt
+
+2. Clone the repo
+   ```sh
+   git clone https://github.com/EricClasson/TS_Connect_Four_Game.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Start Game
+   ```sh
+   npm start
+   ```
