@@ -13,38 +13,33 @@ export default class Game {
   wincheck: CheckForWin;
 
   constructor() {
-    this.createPlayer();
     this.board = new Board();
+    this.createPlayer();
     this.makeYourMove = new MakeYourMove(this.board);
     this.wincheck = new CheckForWin(this.board);
     this.startGame();
     this.whoWon();
   }
 
-  // funkar inte riktigt, den stänger bara programet typ.. kolla mer på detta
-  newGame(): void {
-    const playAgain = prompt("Play again? (yes/no):").toLowerCase();
-    if (playAgain === "yes") {
-      this.startGame();
-    }
-  }
-
   createPlayer() {
     console.clear();
     console.log("Welcome to Connect 4 Game. Please select game");
 
-    const game = prompt(
+    const choiceForGame = prompt(
       "Do you want to play against a computer? (yes/no): "
     ).toLowerCase(); // ändra denna variabel
 
-    if (game === "yes") {
+    if (choiceForGame === "yes") {
+      console.log("You will play against a comupter");
       this.playerX = new Player(
-        prompt("Enter the name for player X: "),
+        prompt("Enter your name. You are player X: "),
         "X",
-        this.board
+        this.board,
+        false
       );
       this.playerO = new Player("computer", "O", this.board, true);
     } else {
+      console.log("Its a game of 2 players.");
       // Gör PlayerX & PlayerO använder mig av prompt för att få in namnen och sparar dem.
       this.playerX = new Player(
         prompt("Enter the name for player X: "),
@@ -66,13 +61,11 @@ export default class Game {
     }
 
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
-      console.clear();
       this.board.render(); // Render out the board with this function.
       let player =
         this.makeYourMove.currentPlayerMarker === "X"
           ? this.playerX
           : this.playerO;
-
       if (!player) {
         console.error("player is not defined");
         return;
@@ -88,13 +81,12 @@ export default class Game {
       }
 
       // Takes the move and make it to a string and - 1 because arrays starts with 0.
-      let column = +move - 1;
-
+      let column = move - 1;
       if (column < 0 || column >= 7) {
         continue;
       }
 
-      // Sends to makeYourMove witch player it is and what column it filled in
+      // Sends to makeMove witch player it is and what column it filled in
       this.makeYourMove.makeMove(player.marker, column);
     }
   }
@@ -108,10 +100,10 @@ export default class Game {
         "\n" +
           `The winner is ${winnerPlayer?.name} & marker:  ${winnerPlayer?.marker} `
       );
-      this.newGame();
+      console.log("The game is over.");
     } else {
-      console.log(`Its a draw ${this.makeYourMove.isdraw}`);
-      this.newGame();
+      console.log(`Its a draw `);
+      console.log("The game is over.");
     }
   }
 }

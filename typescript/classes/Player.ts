@@ -9,26 +9,25 @@ export default class Player {
   constructor(
     name: string,
     marker: string,
-    board: Board,
+    hej: Board,
     isComputer: boolean = false
   ) {
     this.name = name;
     this.marker = marker;
     this.isComputer = isComputer;
-    this.board = board;
+    this.board = hej;
   }
 
-  // se till så inte den kan lägga i en full column
   makeComputerMove() {
-    let column = Math.floor(Math.random() * 7);
-    // let columnMove;
-    // for (let row = this.board.matrix.length - 1; row >= 0; row--) {
-    //   columnMove = this.board.matrix[row];
-    //   if (columnMove[column] == "") {
-    //     columnMove[column] = this.marker;
-    //     break;
-    //   }
-    // }
-    return column;
+    let coloumnMarker;
+    while (true) {
+      let column = Math.floor(Math.random() * 7);
+
+      if (this.board.matrix[0][column] === "") {
+        coloumnMarker = column + 1;
+        break;
+      }
+    }
+    return coloumnMarker;
   }
 }
