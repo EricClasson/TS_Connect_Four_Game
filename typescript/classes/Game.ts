@@ -27,7 +27,7 @@ export default class Game {
 
     const choiceForGame = prompt(
       "Do you want to play against a computer? (yes/no): "
-    ).toLowerCase(); // ändra denna variabel
+    ).toLowerCase();
 
     if (choiceForGame === "yes") {
       console.log("You will play against a comupter");
@@ -61,6 +61,7 @@ export default class Game {
     }
 
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
+      console.clear();
       this.board.render(); // Render out the board with this function.
       let player =
         this.makeYourMove.currentPlayerMarker === "X"
@@ -80,7 +81,7 @@ export default class Game {
         );
       }
 
-      // Takes the move and make it to a string and - 1 because arrays starts with 0.
+      // Takes the move and  - 1 because arrays starts with 0.
       let column = move - 1;
       if (column < 0 || column >= 7) {
         continue;

@@ -9,20 +9,19 @@ export default class Player {
   constructor(
     name: string,
     marker: string,
-    hej: Board,
+    board: Board,
     isComputer: boolean = false
   ) {
     this.name = name;
     this.marker = marker;
     this.isComputer = isComputer;
-    this.board = hej;
+    this.board = board;
   }
 
   makeComputerMove() {
     let coloumnMarker;
     while (true) {
       let column = Math.floor(Math.random() * 7);
-
       if (this.board.matrix[0][column] === "") {
         coloumnMarker = column + 1;
         break;
