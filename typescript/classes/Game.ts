@@ -13,14 +13,25 @@ export default class Game {
   wincheck: CheckForWin;
 
   constructor() {
-    this.board = new Board();
-    this.createPlayer();
-    this.makeYourMove = new MakeYourMove(this.board);
-    this.wincheck = new CheckForWin(this.board);
-    this.startGame();
-    this.whoWon();
+    while (true) {
+      this.board = new Board();
+      this.createPlayer();
+      this.makeYourMove = new MakeYourMove(this.board);
+      this.wincheck = new CheckForWin(this.board);
+      this.startGame();
+      this.whoWon();
+      console.log("");
+      let playAgain = prompt(
+        "Do you want to play again? (yes/no)? "
+      ).toLowerCase();
+      if (playAgain !== "yes") {
+        this.makeYourMove.isWinner === "";
+        this.makeYourMove.isdraw === false;
+        break;
+      }
+    }
   }
-
+  // function that creates the players and descides the game
   createPlayer() {
     console.clear();
     console.log("Welcome to Connect 4 Game. Please select game");
@@ -31,6 +42,8 @@ export default class Game {
 
     if (choiceForGame === "yes") {
       console.log("You will play against a comupter");
+
+      //skapar spelare X med hjälpt av prompt. dator spelare är satt till O
       this.playerX = new Player(
         prompt("Enter your name. You are player X: "),
         "X",
@@ -40,7 +53,8 @@ export default class Game {
       this.playerO = new Player("computer", "O", this.board, true);
     } else {
       console.log("Its a game of 2 players.");
-      // Gör PlayerX & PlayerO använder mig av prompt för att få in namnen och sparar dem.
+
+      // Makes PlayerX & PlayerO, using prompt to get the names ant then saves them to new player.
       this.playerX = new Player(
         prompt("Enter the name for player X: "),
         "X",
@@ -54,12 +68,13 @@ export default class Game {
     }
   }
 
+  // function that starts the game.
   startGame() {
     if (!this.playerX || !this.playerO) {
       console.error("One player is not defined");
       return;
     }
-
+    // loop that goes until we have a winner or its a draw
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
       console.clear();
       this.board.render(); // Render out the board with this function.
@@ -67,6 +82,7 @@ export default class Game {
         this.makeYourMove.currentPlayerMarker === "X"
           ? this.playerX
           : this.playerO;
+
       if (!player) {
         console.error("player is not defined");
         return;
@@ -83,7 +99,8 @@ export default class Game {
 
       // Takes the move and  - 1 because arrays starts with 0.
       let column = move - 1;
-      if (column < 0 || column >= 7) {
+      // if column is not a number, and if column is under 0 or above 7 nothing will happend. if it is the right numbers the loop continues.
+      if (isNaN(column) || column < 0 || column >= 7) {
         continue;
       }
 

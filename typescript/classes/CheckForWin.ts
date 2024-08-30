@@ -4,7 +4,7 @@ export default class CheckForWin {
   constructor(board: Board) {
     this.board = board;
   }
-
+  // function that checks for a win in the game
   winCheck(): string {
     const matrix = this.board.matrix;
     const rows = matrix.length;
@@ -58,6 +58,8 @@ export default class CheckForWin {
     }
     return "";
   }
+
+  // function that checks if its a draw game
   isDraw(): boolean {
     return this.board.matrix.every((row) => row.every((cell) => cell !== ""));
   }
