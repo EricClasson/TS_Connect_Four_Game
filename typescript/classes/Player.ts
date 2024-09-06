@@ -1,4 +1,4 @@
-import Board from "./Board.js";
+import Board from './Board.js';
 
 export default class Player {
   name: string;
@@ -22,7 +22,7 @@ export default class Player {
     let coloumnMarker;
     while (true) {
       let column = Math.floor(Math.random() * 7);
-      if (this.board.matrix[0][column] === "") {
+      if (this.board.matrix[0][column] === '') {
         coloumnMarker = column + 1;
         break;
       }

@@ -1,4 +1,4 @@
-import Board from "./Board.js";
+import Board from './Board.js';
 export default class CheckForWin {
   board: Board;
   constructor(board: Board) {
@@ -13,7 +13,7 @@ export default class CheckForWin {
     for (let row = 0; row < matrix.length; row++) {
       for (let col = 0; col < matrix[row].length; col++) {
         let marker = matrix[row][col]; // let marker here in row and col
-        if (marker === "") continue; // if marker is "" then continue
+        if (marker === '') continue; // if marker is "" then continue
 
         // check horisontal win
         if (
@@ -56,11 +56,11 @@ export default class CheckForWin {
         }
       }
     }
-    return "";
+    return '';
   }
 
   // function that checks if its a draw game
   isDraw(): boolean {
-    return this.board.matrix.every((row) => row.every((cell) => cell !== ""));
+    return this.board.matrix.every((row) => row.every((cell) => cell !== ''));
   }
 }
