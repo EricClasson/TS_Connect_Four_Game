@@ -32,7 +32,7 @@ export default class Game {
     }
   }
   // function that creates the players and descides the game
-  createPlayer() {
+  createPlayer(): void {
     console.clear();
     console.log('Welcome to Connect 4 Game. Please select game');
 
@@ -69,7 +69,7 @@ export default class Game {
   }
 
   // function that starts the game.
-  startGame() {
+  startGame(): void {
     if (!this.playerX || !this.playerO) {
       console.error('One player is not defined');
       return;
@@ -109,8 +109,9 @@ export default class Game {
     }
   }
   // this function checks if a person has won or if it is a draw, it first checks if it is X or O then console.log the winner. IF its a draw console.log " its a draw"
-  whoWon() {
+  whoWon(): void {
     console.clear();
+    this.board.render(); // kolla på detta, varför renderar det konstig i console??
     if (this.makeYourMove.isWinner) {
       let winnerPlayer =
         this.makeYourMove.isWinner === 'X' ? this.playerX : this.playerO;

@@ -6,7 +6,7 @@ export default class Board {
   }
 
   // Render out the board with coloumn number and some lines so it looks better.
-  render() {
+  render(): void {
     const columnNumber =
       '  ' + [...Array(7).keys()].map((n) => n + 1).join('   ') + '';
     let line = '\n' + '-'.repeat(29) + '\n';

@@ -18,7 +18,7 @@ export default class Player {
     this.board = board;
   }
   // function that makes the computer move.  A loop that makes a random number, checks if its ok to put in a column if its a full column it checks again.
-  makeComputerMove() {
+  makeComputerMove(): number {
     let coloumnMarker;
     while (true) {
       let column = Math.floor(Math.random() * 7);
