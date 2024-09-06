@@ -5,10 +5,10 @@ import MakeYourMove from './MakeYourMove.js';
 import CheckForWin from './CheckForWin.js';
 
 export default class Game {
-  playerX: Player | undefined;
-  playerO: Player | undefined;
+  playerX: Player;
+  playerO: Player;
   board: Board;
-  player: Player | undefined;
+  player: Player;
   makeYourMove: MakeYourMove;
   wincheck: CheckForWin;
 

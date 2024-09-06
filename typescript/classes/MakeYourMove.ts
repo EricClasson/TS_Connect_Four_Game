@@ -16,7 +16,7 @@ export default class MakeYourMove {
     this.currentPlayerMarker = 'X';
   }
   // makeYourMove takes in the parameters "marker" & "column"
-  makeMove(marker: string, column: number) {
+  makeMove(marker: string, column: number): void {
     // for loop does checks for a free place in the matrix. then puts the marker in seleced column.
     let columnMove;
     for (let row = this.board.matrix.length - 1; row >= 0; row--) {
