@@ -19,6 +19,7 @@
 15. Make the dummycomputer
 16. make wronghandling so player/computer cant put in a full column
 17. check the newGame function? does it work?
+18. fixing comments
 
 ## Demands on asignment
 
@@ -34,10 +35,10 @@
   - Du behöver inte använda git-branches när du jobbar ensam. Men får gärna göra det om du känner behov av det.
   - Obs! Fokusera på spellogiken - inte att göra output till terminalen överdrivet snygg (med färger etc). Låt det som är röd spelare i Fyra-i-rad representeras av “X” på spelbrädet när det “ritas ut” och gul-spelare representeras av “O”.
 
-## Frågor till Thomas
+## Tankar om projektet.
 
-2. OM spelet startar om måste jag reset iswinner och isdraw. måste vi ha en en reset?
-3. Hur mycket felhantering behöver vi?
+- Det var ett spännande projekt, jag blev verkligen utmanad. Det var rätt tufft i början innan man förstod logiken i hur man skulle skriva koden. Jag testade 2 nya saker i det här projektet. 1 var att jag skrev ned delarna och försöka bryta ned stegen. Det här hjälpte mycket för att se vad behövde göras. 2, jag öppnade upp ett nytt "test" dokument där jag hade lite test miljö. Om jag inte riktigt visste hur jag skulle lösa problemen började jag där. Exempelvis när jag gjorde och jobbade med checkforwin eller computer delen, de var tuff..
+- Om jag fick göra om i projektet så hade jag inte flyttat ut checkForWin & MakeYourMove till egna klasser. Detta för att när jag väl hade gjort det så tyckte jag att det kändes mer rörigt.. clean code.. kändes det inte som iallafall! Samt så hade jag och kommer nog skriva om det här projektet på eget håll, för att lära mig och se om jag förstår allt bättre.
 
 ## Installation
 
