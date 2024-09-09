@@ -22,11 +22,10 @@ export default class Game {
       this.whoWon();
       console.log('');
       let playAgain = prompt(
-        'Do you want to play again? (yes/no)? '
+        'Do you want to play again? (yes/no)?: '
       ).toLowerCase();
       if (playAgain !== 'yes') {
-        this.makeYourMove.isWinner === '';
-        this.makeYourMove.isdraw === false;
+        this.makeYourMove.reset();
         break;
       }
     }
@@ -34,14 +33,14 @@ export default class Game {
   // function that creates the players and descides the game
   createPlayer(): void {
     console.clear();
-    console.log('Welcome to Connect 4 Game. Please select game');
+    console.log('Welcome to Connect 4 Game. Please select game.. ');
 
     const choiceForGame = prompt(
       'Do you want to play against a computer? (yes/no): '
     ).toLowerCase();
 
     if (choiceForGame === 'yes') {
-      console.log('You will play against a comupter');
+      console.log('You will play against a computer');
 
       //skapar spelare X med hjälpt av prompt. dator spelare är satt till O
       this.playerX = new Player(
