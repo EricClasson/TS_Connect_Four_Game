@@ -14,6 +14,7 @@ export default class Game {
 
   constructor() {
     while (true) {
+      // Loop the constructor so if we have a game over, the player gets asked to play again. If "No" theg game closes.
       this.board = new Board();
       this.createPlayer();
       this.makeYourMove = new MakeYourMove(this.board);
@@ -35,6 +36,7 @@ export default class Game {
     console.clear();
     console.log('Welcome to Connect 4 Game. Please select game.. ');
 
+    // Asks if they want to play agains a computer, if "yes" it sets computer to O and then asks for the name of the player X.
     const choiceForGame = prompt(
       'Do you want to play against a computer? (yes/no): '
     ).toLowerCase();
@@ -67,13 +69,13 @@ export default class Game {
     }
   }
 
-  // function that starts the game.
+  // Function that starts the game.
   startGame(): void {
     if (!this.playerX || !this.playerO) {
       console.error('One player is not defined');
       return;
     }
-    // loop that goes until we have a winner or its a draw
+    // Loop that goes until we have a winner or its a draw
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
       console.clear();
       this.board.render(); // Render out the board with this function.
@@ -86,10 +88,12 @@ export default class Game {
         console.error('player is not defined');
         return;
       }
-      let move;
 
+      let move;
+      // if a player is a computer it will let the computer function make a move.
       if (player.isComputer) {
         move = player.makeComputerMove();
+        // else the game plays with 2 to names entered
       } else {
         move = prompt(
           `Make your move Player:${player.name} "${player.marker}" - type COLUMN, 1-7: `
@@ -103,11 +107,11 @@ export default class Game {
         continue;
       }
 
-      // Sends to makeMove witch player it is and what column it filled in
+      // Sends to makeMove witch player it is and what column it filled in.
       this.makeYourMove.makeMove(player.marker, column);
     }
   }
-  // this function checks if a person has won or if it is a draw, it first checks if it is X or O then console.log the winner. IF its a draw console.log " its a draw"
+  // This function checks if a person has won or if it is a draw, it first checks if it is X or O then console.log the winner. IF its a draw console.log " its a draw".
   whoWon(): void {
     console.clear();
     this.board.render(); // kolla på detta, varför renderar det konstig i console??

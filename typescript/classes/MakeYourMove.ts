@@ -34,9 +34,10 @@ export default class MakeYourMove {
     this.isdraw = this.winCheck.isDraw();
   }
 
+  // resets the game
   reset() {
     this.isWinner = '';
     this.isdraw = false;
-    this.currentPlayerMarker = 'X'; // Reset to initial marker
+    this.currentPlayerMarker = 'X';
   }
 }
