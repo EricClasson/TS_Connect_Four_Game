@@ -35,7 +35,7 @@ export default class MakeYourMove {
   }
 
   // resets the game
-  reset() {
+  reset(): void {
     this.isWinner = '';
     this.isdraw = false;
     this.currentPlayerMarker = 'X';
