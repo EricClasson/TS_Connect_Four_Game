@@ -21,25 +21,10 @@
 17. check the newGame function? does it work?
 18. fixing comments
 
-## Demands on asignment
-
-- Skriv spelet 4-i-rad (Connect 4) objektorienterat och med TypeScript.
-- Skriv det som ett terminal-baserat program utan webbaserat gränssnitt.
-- Fokusera på att använda klasser på ett korrekt sätt. Fokusera på composition inte inheritance. (Varför? Prefer Composition over Inheritance - länk till artikel kommer)
-- Förslag på indelning i minimalt antal klasser: App/Game-klass, Player-klass, Board-klass. Fundera på: Board-klassen kan brytas ner så att man inte har “makeMove”-funktionalitet och “checkForWin”-funktionalitet i den utan i separata klasser, med hjälp av komposition.
-- Krav:
-  - Arbeta objektorienterat - all kod ska finnas i klasser. (Utom att skapa en instans av din App/Game-klass.)
-  - Koden ska vara skriven med de inställningar för Visual Studio Code som rekommenderas på bloggen.
-  - Skapa ett github-repository. Det ska vara öppet. Bjud in Thomas/“ironboy” som collaborator.
-  - Gör frekventa commits till ditt repo. Dvs. en commit efter varje mindre delmängd av koden du skrivit, minimum frekvens: Efter varje ny klassdeklaration och efter varje ny skriven metod.
-  - Du behöver inte använda git-branches när du jobbar ensam. Men får gärna göra det om du känner behov av det.
-  - Obs! Fokusera på spellogiken - inte att göra output till terminalen överdrivet snygg (med färger etc). Låt det som är röd spelare i Fyra-i-rad representeras av “X” på spelbrädet när det “ritas ut” och gul-spelare representeras av “O”.
-
 ## Tankar om projektet.
 
-- Det var ett spännande projekt, jag blev verkligen utmanad. Det var rätt tufft i början innan man förstod logiken i hur man skulle skriva koden. Jag testade 2 nya saker i det här projektet. 1 var att jag skrev ned delarna och försöka bryta ned stegen. Det här hjälpte mycket för att se vad behövde göras. 2, jag öppnade upp ett nytt "test" dokument där jag hade lite test miljö. Om jag inte riktigt visste hur jag skulle lösa problemen började jag där. Exempelvis när jag gjorde och jobbade med checkforwin eller computer delen, de var tuff..
-- Om jag fick göra om i projektet så hade jag inte flyttat ut checkForWin & MakeYourMove till egna klasser. Detta för att när jag väl hade gjort det så tyckte jag att det kändes mer rörigt.. clean code.. kändes det som iallafall! Samt så hade jag och kommer nog skriva om det här projektet på eget håll, för att lära mig och se om jag förstår allt bättre, så det sitter.
-
+- Det var ett spännande projekt, jag blev verkligen utmanad. Det var rätt tufft i början innan man förstod logiken i hur man skulle skriva koden. Jag testade 2 nya saker i det här projektet. 1, det var att jag skrev ned delarna och försöka bryta ned stegen. (Building progress/problem solving). Jag har mest skrivit ned saker för att få en överblick hur det ska byggas. I slutändan har inte koden blivit som jag har skrivit där utan jag har fått ändra mycket under byggandets tid. Det här hjälpte mycket för att se vad som behövde göras och lättare få en överblick för mig. 2, jag öppnade upp ett nytt "test" dokument där jag hade lite test miljö. Om jag inte riktigt visste hur jag skulle lösa problemen började jag där. Exempelvis när jag gjorde och jobbade med checkforwin eller computer delen, de var tuff..
+- Om jag fick göra om i projektet så hade jag inte flyttat ut checkForWin & MakeYourMove till egna klasser. Detta för att när jag väl hade gjort det så tyckte jag att det kändes mer rörigt.. clean code.. kändes det inte som iallafall! Samt så hade jag och kommer nog skriva om det här projektet på eget håll, för att lära mig allt bättre.
 
 ## Installation
 
