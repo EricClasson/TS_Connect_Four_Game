@@ -8,7 +8,7 @@ export default class Game {
   playerX: Player;
   playerO: Player;
   board: Board;
-  player: Player;
+  // player: Player;
   makeYourMove: MakeYourMove;
   wincheck: CheckForWin;
 
@@ -35,46 +35,70 @@ export default class Game {
   createPlayer(): void {
     console.clear();
     console.log('Welcome to Connect 4 Game. Please select game.. ');
+    let choiceForGame: string;
 
     // Asks if they want to play agains a computer. If "yes" we set the computer to player O, Then asks for the name of the player X.
     // If "no" its a game of 2 players. then we ask for Player O name & Player X name.
-    const choiceForGame = prompt(
-      'Do you want to play against a computer? (yes/no): '
-    ).toLowerCase();
+    // A loop that checks so we get a "yes" or "no". if Typed "1" or "hi" it will ask again.
+    while (true) {
+      console.log(
+        'Play against a computer? Enter: (yes)' +
+          '\n' +
+          'Play against another human? Enter: (no)' +
+          '\n'
+      );
+      choiceForGame = prompt('Enter here:').toLowerCase();
+
+      if (choiceForGame !== 'yes' && choiceForGame !== 'no') {
+        console.log('Type in "yes" or "no"');
+      } else {
+        break;
+      }
+    }
 
     if (choiceForGame === 'yes') {
-      console.log('You will play against a computer');
+      console.log('You will play against a computer. Computer is player O');
 
-      //
-      this.playerX = new Player(
-        prompt('Enter your name. You are player X: '),
-        'X',
-        this.board,
-        false
-      );
-      this.playerO = new Player('computer', 'O', this.board, true);
+      let playerNameX: string;
+      while (true) {
+        playerNameX = prompt('Enter the name for player X: ');
+        if (!playerNameX || !isNaN(Number(playerNameX))) {
+          console.log('Try again, a name please!');
+        } else {
+          break;
+        }
+      }
+      this.playerX = new Player(playerNameX, 'X', this.board, false); // Assigns Player X not a computer
+      this.playerO = new Player('computer', 'O', this.board, true); // Assigns Player O for computer
     } else {
       console.log('Its a game of 2 players.');
 
-      this.playerX = new Player(
-        prompt('Enter the name for player X: '),
-        'X',
-        this.board
-      );
-      this.playerO = new Player(
-        prompt('Enter the name for player 0: '),
-        'O',
-        this.board
-      );
+      let playerNameX: string;
+      let playerNameY: string;
+      while (true) {
+        playerNameX = prompt('Enter the name for player X: ');
+        if (!playerNameX || !isNaN(Number(playerNameX))) {
+          console.log('Try again, a name please!');
+        } else {
+          break;
+        }
+      }
+      while (true) {
+        playerNameY = prompt('Enter the name for player Y: ');
+        if (!playerNameY || !isNaN(Number(playerNameY))) {
+          console.log('Try again, a name please!');
+        } else {
+          break;
+        }
+      }
+
+      this.playerX = new Player(playerNameX, 'X', this.board); // Assigns Player X
+      this.playerO = new Player(playerNameY, 'O', this.board); // Assigns Player O
     }
   }
 
   // Function that starts the game.
   startGame(): void {
-    if (!this.playerX || !this.playerO) {
-      console.error('One player is not defined');
-      return;
-    }
     // Loop that goes until we have a winner or its a draw.
     while (!this.makeYourMove.isWinner && !this.makeYourMove.isdraw) {
       console.clear();
@@ -83,11 +107,6 @@ export default class Game {
         this.makeYourMove.currentPlayerMarker === 'X'
           ? this.playerX
           : this.playerO;
-
-      if (!player) {
-        console.error('player is not defined');
-        return;
-      }
 
       let move;
       // If a player is a computer it will let the computer function make a move.
@@ -119,7 +138,7 @@ export default class Game {
         this.makeYourMove.isWinner === 'X' ? this.playerX : this.playerO;
       console.log(
         '\n' +
-          `The winner is ${winnerPlayer?.name} & marker:  ${winnerPlayer?.marker} `
+          `The winner is ${winnerPlayer?.name} & marker: ${winnerPlayer?.marker} `
       );
       console.log('The game is over.');
     } else {

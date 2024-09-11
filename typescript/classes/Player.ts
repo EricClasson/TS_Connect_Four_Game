@@ -19,14 +19,14 @@ export default class Player {
   }
   // Function that makes a move for the computer. It randomly selects a column, checks if the top row of that column is empty, and if it's not full, returns the column number. If the column is full, it tries again.
   makeComputerMove(): number {
-    let coloumnMarker;
+    let columnMarker;
     while (true) {
       let column = Math.floor(Math.random() * 7);
       if (this.board.matrix[0][column] === '') {
-        coloumnMarker = column + 1;
+        columnMarker = column + 1;
         break;
       }
     }
-    return coloumnMarker;
+    return columnMarker;
   }
 }
