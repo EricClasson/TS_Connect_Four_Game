@@ -5,7 +5,7 @@ export default class Board {
     this.matrix = [...new Array(6)].map(() => [...new Array(7)].map(() => '')); // Creates the board array
   }
 
-  // Render out the board with coloumn number and some lines so it looks better.
+  // Render out the board with column number and some lines so it looks better.
   render(): void {
     const columnNumber =
       '  ' + [...Array(7).keys()].map((n) => n + 1).join('   ') + '';

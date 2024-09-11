@@ -5,7 +5,7 @@ export default class Player {
   marker: string;
   isComputer: boolean;
   board: Board;
-  // takes in the parameters name and marker. and assign it to name and marker.
+  // Takes in the parameters 'name', 'marker', 'board', and 'isComputer', and assigns them to the player's properties.
   constructor(
     name: string,
     marker: string,
@@ -17,7 +17,7 @@ export default class Player {
     this.isComputer = isComputer;
     this.board = board;
   }
-  // function that makes the computer move.  A loop that makes a random number, checks if its ok to put in a column if its a full column it checks again.
+  // Function that makes a move for the computer. It randomly selects a column, checks if the top row of that column is empty, and if it's not full, returns the column number. If the column is full, it tries again.
   makeComputerMove(): number {
     let coloumnMarker;
     while (true) {
