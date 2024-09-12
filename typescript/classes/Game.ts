@@ -35,8 +35,9 @@ export default class Game {
   createPlayer(): void {
     console.clear();
     console.log('Welcome to Connect 4 Game. Please select game.. ');
-    let choiceForGame: string;
-
+    let choiceForGame: string; // variabel for choiceForGame set to string
+    let playerNameX: string; // variabel for playerNameX set to string
+    let playerNameY: string; // variabel for playerNameY set to string
     // Asks if they want to play agains a computer. If "yes" we set the computer to player O, Then asks for the name of the player X.
     // If "no" its a game of 2 players. then we ask for Player O name & Player X name.
     // A loop that checks so we get a "yes" or "no". if Typed "1" or "hi" it will ask again.
@@ -59,7 +60,6 @@ export default class Game {
     if (choiceForGame === 'yes') {
       console.log('You will play against a computer. Computer is player O');
 
-      let playerNameX: string;
       while (true) {
         playerNameX = prompt('Enter the name for player X: ');
         if (!playerNameX || !isNaN(Number(playerNameX))) {
@@ -73,8 +73,6 @@ export default class Game {
     } else {
       console.log('Its a game of 2 players.');
 
-      let playerNameX: string;
-      let playerNameY: string;
       while (true) {
         playerNameX = prompt('Enter the name for player X: ');
         if (!playerNameX || !isNaN(Number(playerNameX))) {
