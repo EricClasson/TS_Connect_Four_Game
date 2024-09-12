@@ -8,7 +8,6 @@ export default class Game {
   playerX: Player;
   playerO: Player;
   board: Board;
-  // player: Player;
   makeYourMove: MakeYourMove;
   wincheck: CheckForWin;
 
@@ -22,26 +21,35 @@ export default class Game {
       this.startGame();
       this.whoWon();
       console.log('');
-      let playAgain = prompt(
-        'Do you want to play again? (yes/no)?: '
-      ).toLowerCase();
-      if (playAgain !== 'yes') {
-        this.makeYourMove.reset();
-        break;
+      let playAgain: string;
+      while (true) {
+        playAgain = prompt(
+          'Do you want to play again? (yes/no)?: '
+        ).toLowerCase();
+        if (playAgain !== 'yes' && playAgain !== 'no') {
+          console.log('Type in "yes" or "no"');
+        } else {
+          if (playAgain == 'yes') {
+            this.reset();
+            break;
+          }
+        }
       }
     }
   }
   // Function that creates the players and descides the game.
   createPlayer(): void {
     console.clear();
-    console.log('Welcome to Connect 4 Game. Please select game.. ');
+    console.log('Welcome to Connect 4 Game. ');
     let choiceForGame: string; // variabel for choiceForGame set to string
     let playerNameX: string; // variabel for playerNameX set to string
     let playerNameY: string; // variabel for playerNameY set to string
+
     // Asks if they want to play agains a computer. If "yes" we set the computer to player O, Then asks for the name of the player X.
     // If "no" its a game of 2 players. then we ask for Player O name & Player X name.
     // A loop that checks so we get a "yes" or "no". if Typed "1" or "hi" it will ask again.
     while (true) {
+      console.log('Please select game.. ');
       console.log(
         'Play against a computer? Enter: (yes)' +
           '\n' +
@@ -131,6 +139,7 @@ export default class Game {
   // This function checks if a person has won or if the game ended in a draw. It first checks if it is X or O then console.log the result. If its a draw, it logs "its a draw".
   whoWon(): void {
     console.clear();
+    this.board.render();
     if (this.makeYourMove.isWinner) {
       let winnerPlayer =
         this.makeYourMove.isWinner === 'X' ? this.playerX : this.playerO;
@@ -143,5 +152,12 @@ export default class Game {
       console.log(`Its a draw `);
       console.log('The game is over.');
     }
+  }
+
+  // resets the game
+  reset(): void {
+    this.makeYourMove.isWinner = '';
+    this.makeYourMove.isdraw = false;
+    this.makeYourMove.currentPlayerMarker = 'X';
   }
 }
