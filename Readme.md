@@ -24,7 +24,7 @@
 ## Tankar om projektet.
 
 - Det var ett spännande projekt, jag blev verkligen utmanad. Det var rätt tufft i början innan man förstod logiken i hur man skulle skriva koden. Jag testade 2 nya saker i det här projektet. 1, det var att jag skrev ned delarna och försöka bryta ned stegen. (Building progress/problem solving). Jag har mest skrivit ned saker för att få en överblick hur det ska byggas. I slutändan har inte koden blivit som jag har skrivit där utan jag har fått ändra mycket under byggandets tid. Det här hjälpte mycket för att se vad som behövde göras och lättare få en överblick för mig. 2, jag öppnade upp ett nytt "test" dokument där jag hade lite test miljö. Om jag inte riktigt visste hur jag skulle lösa problemen började jag där. Exempelvis när jag gjorde och jobbade med checkforwin eller computer delen, de var tuff..
-- Jag kommer nog testa göra om projektet igen för min egen skull, så jag det sitter bättre.
+- Jag kommer nog testa göra om projektet igen för min egen skull, så det sitter bättre.
 
 ## Installation
 
